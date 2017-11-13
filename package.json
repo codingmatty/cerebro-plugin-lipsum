@@ -1,6 +1,6 @@
 {
   "name": "cerebro-lipsum",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cerebro plugin to generate lorem ipsum text from www.lipsum.com",
   "license": "MIT",
   "repository": "codingmatty/cerebro-plugin-lipsum",
@@ -32,6 +32,7 @@
     "babili": "0.0.9",
     "cerebro-tools": "^0.1.0",
     "css-loader": "^0.26.0",
+    "qs": "^6.5.1",
     "react": "^15.4.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

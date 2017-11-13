@@ -1,5 +1,6 @@
 'use strict';
 const fs = require('fs');
+const qs = require('qs');
 const path = require('path');
 const icon = require('./LipsumIcon.png');
 
@@ -74,17 +75,13 @@ function generateOnSelect(actions, title, opts) {
 }
 
 function fetchLoremIpsum(what, amount, start = false) {
-  const formData = new FormData();
-  formData.set('what', what);
-  formData.set('amount', amount);
-  if (start) {
-    formData.set('start', 'yes');
-  }
+  const query = qs.stringify({
+    what,
+    amount,
+    start: start ? 'yes' : 'no'
+  });
 
-  return fetch('http://www.lipsum.com/feed/json', {
-    method: 'POST',
-    body: formData
-  })
+  return fetch(`http://www.lipsum.com/feed/json?${query}`)
     .then((res) => res.json())
     .then(({ feed }) => {
       return {
